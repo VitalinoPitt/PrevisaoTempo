@@ -69,7 +69,7 @@ export default function InfoClima
       <View style={styles.columnbox}> 
           <Text style={{fontSize: 35, fontWeight: 'bold',}}>{nameCity}, {uf}</Text>
           <Text style={{fontSize: 16,textAlign: 'center'}}>{day_week}  |  {dateformat}</Text>
-          <Text style={{fontSize: 60,textAlign: 'center'}}>{max}º</Text>
+          <Text style={{fontSize: 22,textAlign: 'center'}}>Mín. {min}º / Máx. {max}º</Text>
           <Text style={{fontSize: 8}}></Text>
 
       </View>

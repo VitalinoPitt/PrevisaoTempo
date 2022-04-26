@@ -13,8 +13,6 @@ export default function InfoCidade (props) {
     const [max, setMax] = useState()
     const [min, setMin] = useState()
     const now  =  new Date();
-    const [humidityMax, setHumidityMax] = useState()
-    const [humidityMin, setHumidityMin] = useState()
     const dateformat = date.format(now,'DD/MM/YYYY');
     const hourformat = date.format(now, 'HH')
 
@@ -26,9 +24,6 @@ export default function InfoCidade (props) {
           setDay_week(data[id][dateformat].manha.dia_semana)
           setMax(data[id][dateformat].manha.temp_max)
           setMin(data[id][dateformat].manha.temp_min)
-          setHumidityMax(data[id][dateformat].manha.umidade_max)
-          setHumidityMin(data[id][dateformat].manha.umidade_min)
-          setdir_vento(data[id][dateformat].manha.dir_vento)
                     
         }if (hourformat > 12 && hourformat <= 18) {
           setUf(data[id][dateformat].tarde.uf)
@@ -36,8 +31,6 @@ export default function InfoCidade (props) {
           setDay_week(data[id][dateformat].tarde.dia_semana)
           setMax(data[id][dateformat].tarde.temp_max)
           setMin(data[id][dateformat].tarde.temp_min)
-          setHumidityMax(data[id][dateformat].tarde.umidade_max)
-          setHumidityMin(data[id][dateformat].tarde.umidade_min)
 
         } else if (hourformat > 18 && hourformat <= 24) {
           setUf(data[id][dateformat].noite.uf)
@@ -45,8 +38,6 @@ export default function InfoCidade (props) {
           setDay_week(data[id][dateformat].noite.dia_semana)
           setMax(data[id][dateformat].noite.temp_max)
           setMin(data[id][dateformat].noite.temp_min)
-          setHumidityMax(data[id][dateformat].noite.umidade_max)
-          setHumidityMin(data[id][dateformat].noite.umidade_min)
         }
     }, [])
 
@@ -57,7 +48,9 @@ export default function InfoCidade (props) {
         <View style={styles.columnE}>
           <Text style={styles.title}>{nameCity}, {uf}</Text>
           <Text style={{fontSize: 12, fontWeight:'bold',textAlign: 'center'}}>{day_week}   |   {dateformat}</Text>
-          <Text style={{fontSize: 37,textAlign: 'center'}}>{max}º</Text>
+          <Text style={{fontSize: 6, textAlign: 'center'}}></Text>
+          <Text style={{fontSize: 20,textAlign: 'center'}}>Mín. {min}º /  Máx. {max}º</Text>
+          <Text style={{fontSize: 6, textAlign: 'center'}}></Text>
           <Text style={{fontSize: 10, textAlign: 'center'}}>{resume}</Text>
         </View>
       </View>
